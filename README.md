@@ -21,7 +21,7 @@ To run the project, follow these steps:
    pip install nltk kytea
 
 3. **Generate Train and Test Set**:
-   In my project, I use Gutenberg dataset as training data and Brown dataset as testing data. For training data, I use 5 different proportion of Gutenberg dataset for data preprocessing, so you will see 5 train text files(you can also change it by change the proportion variable); while for test data, I use 100% Brown dataset and generate the text file with only first-two-character(input) and with whole sentence(ground truth). The data_generation.py not only download these dataset, but also do the preprocessing: delete the illegal characters such as (, /.
+   In my project, I use Gutenberg dataset as training data and Brown dataset as testing data. For training data, I use different proportion of Gutenberg dataset for data preprocessing, so you will see many train text files(you can also change it by change the proportion variable); while for test data, I use 100% Brown dataset and generate the text file with only first-two-character(input) and with whole sentence(ground truth). The data_generation.py not only download these dataset, but also do the preprocessing: delete the illegal characters such as (, /.
    ```sh
    python3 data_generation.py
 
@@ -31,7 +31,7 @@ To run the project, follow these steps:
    input: This is the sample sentence
    output: Th/This is/is th/the sa/sample se/sentence   
    
-   Since we have 5 different percentage of Gutenberg dataset input, so you may need to make corpus for each text file, or you can just make corpus for 100% Gutenberg dataset
+   Since we have different percentage of Gutenberg dataset input, so you may need to make corpus for each text file, or you can just make corpus for 100% Gutenberg dataset
    And the corpus will be added below the text. So supposed the original text have 50 lines, then it will have 100 lines after corpus generation!(raw text + corpus text)
    ```sh
    python3 make_corpus.py <data>.txt
@@ -43,19 +43,21 @@ To run the project, follow these steps:
 
 6. **Model Evaluation**:
    Accuracy evaluation method is executed on the test set. First is the accuracy of the generated sentence compared with ground-truth sentence. But since the ambiguity of the prefix, so we can have many result from the same prefix sequence, for example:
-   ```sh
-   input: fitwchinme
-   ground truth: first two character input method
-   another possible output: final twitch channel in media
+   
+   **input: fitwchinme**
+   
+   **ground truth: first two character input method**
+   
+   **another possible output: final twitch channel in media**
    
    So even using all datasets to train, the accuracy for the test set is still below 20%.
    ```sh
    python3 test.py -model <model>.dat
    ## or you can run this code to evaluate all the model that exist:
    python3 test_all.py
+   
+   ## output example for python3 test.py -model model.dat------------------------------
 
-   I construct the code to find the best prediction
-   ```sh
    Average Accuracy: 0.1653117690542115
    Best Accuracy: 0.625
    Best Example:
@@ -64,7 +66,7 @@ To run the project, follow these steps:
    Correct Words: ['You', 'to', 'know', 'much', 'about']
    Incorrect Words: [{'predicted': 'do', 'actual': 'dont'}, {'predicted': 'seemed', 'actual': 'seem'}, {'predicted': 'UNK', 'actual': 'reality'}]
 
-   Here is the figure for different proportions of the Gutenberg dataset used for training:
+**Here is the figure for different proportions of the Gutenberg dataset used for training:**
 ![Model Accuracy Chart](model_accuracy_chart.png "Model Accuracy Chart")
 ## Introduction
 In this project, I propose a novel approach for sentence generation using a first-two-char input method. The method predicts complete sentences based on the first two characters of each word. This approach is particularly useful for applications where typing speed and efficiency are critical.
