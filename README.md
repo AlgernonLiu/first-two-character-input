@@ -1,10 +1,11 @@
 # First-Two-Character-Input Method for Sentence Generation
 
 Welcome to the First-Two-Char Input Method for Sentence Generation project! This project aims to generate complete sentences based on the first two characters provided as input. I utilize the KyTea toolkit for word segmentation and sentence generation. The approach includes training a statistical model on a preprocessed corpus and evaluating its performance based on accuracy.
+ 
 
-The standard input: fitwchinme
+**The standard input: fitwchinme**
    
-The expected output: first two character input method
+**The expected output: first two character input method**
 
 ## Usage
 
@@ -26,9 +27,8 @@ To run the project, follow these steps:
 
 4. **Make corpus**:
    It will exclude the first two characters from each word, for example:
-   
+   ```sh
    input: This is the sample sentence
-   
    output: Th/This is/is th/the sa/sample se/sentence   
    
    Since we have 5 different percentage of Gutenberg dataset input, so you may need to make corpus for each text file, or you can just make corpus for 100% Gutenberg dataset
@@ -43,11 +43,9 @@ To run the project, follow these steps:
 
 6. **Model Evaluation**:
    Accuracy evaluation method is executed on the test set. First is the accuracy of the generated sentence compared with ground-truth sentence. But since the ambiguity of the prefix, so we can have many result from the same prefix sequence, for example:
-   
+   ```sh
    input: fitwchinme
-   
    ground truth: first two character input method
-   
    another possible output: final twitch channel in media
    
    So even using all datasets to train, the accuracy for the test set is still below 20%.
@@ -55,6 +53,18 @@ To run the project, follow these steps:
    python3 test.py -model <model>.dat
    ## or you can run this code to evaluate all the model that exist:
    python3 test_all.py
+
+   I construct the code to find the best prediction
+   ```sh
+   Average Accuracy: 0.1653117690542115
+   Best Accuracy: 0.625
+   Best Example:
+   Prediction: You do seemed to know much about UNK
+   Ground Truth: You dont seem to know much about reality
+   Correct Words: ['You', 'to', 'know', 'much', 'about']
+   Incorrect Words: [{'predicted': 'do', 'actual': 'dont'}, {'predicted': 'seemed', 'actual': 'seem'}, {'predicted': 'UNK', 'actual': 'reality'}]
+
+   Here is the figure for different proportions of the Gutenberg dataset used for training:
 ![Model Accuracy Chart](model_accuracy_chart.png "Model Accuracy Chart")
 ## Introduction
 In this project, I propose a novel approach for sentence generation using a first-two-char input method. The method predicts complete sentences based on the first two characters of each word. This approach is particularly useful for applications where typing speed and efficiency are critical.
