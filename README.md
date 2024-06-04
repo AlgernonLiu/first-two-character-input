@@ -21,8 +21,8 @@ To run the project, follow these steps:
    python3 data_generation.py
 
 4. **Make corpus**:
-   It will exclude the first two characters from each word, for example:
-   input: This is the sample sentence
+   It will exclude the first two characters from each word, for example:\n
+   input: This is the sample sentence\n
    output: Th/This is/is th/the sa/sample se/sentence
    
    Since we have 5 different percentage of Gutenberg dataset input, so you may need to make corpus for each text file, or you can just make corpus for 100% Gutenberg dataset
