@@ -1,6 +1,10 @@
 # First-Two-Character-Input Method for Sentence Generation
 
-Welcome to the First-Two-Char Input Method for Sentence Generation project! This project aims to generate complete sentences based on the first two characters provided as input. I utilize the KyTea toolkit for word segmentation and sentence generation. The approach includes training a statistical model on a preprocessed corpus and evaluating its performance based on accuracy and sentence similarity.
+Welcome to the First-Two-Char Input Method for Sentence Generation project! This project aims to generate complete sentences based on the first two characters provided as input. I utilize the KyTea toolkit for word segmentation and sentence generation. The approach includes training a statistical model on a preprocessed corpus and evaluating its performance based on accuracy.
+
+The standard input: fitwchinme
+   
+The expected output: first two character input method
 
 ## Usage
 
