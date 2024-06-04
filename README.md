@@ -55,7 +55,7 @@ To run the project, follow these steps:
    python3 test.py -model <model>.dat
    ## or you can run this code to evaluate all the model that exist:
    python3 test_all.py
-
+![Model Accuracy Chart](model_accuracy_chart.png "Model Accuracy Chart")
 ## Introduction
 In this project, I propose a novel approach for sentence generation using a first-two-char input method. The method predicts complete sentences based on the first two characters of each word. This approach is particularly useful for applications where typing speed and efficiency are critical.
 
