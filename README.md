@@ -12,7 +12,7 @@ To run the project, follow these steps:
 
 1. **Clone the Repository**:
    ```sh
-   git clone https://github.com/your-username/first-two-char-input-method.git
+   git clone https://github.com/AlgernonLiu/first-two-character-input.git
    cd first-two-char-input-method
 
 2. **Install Dependencies**:
